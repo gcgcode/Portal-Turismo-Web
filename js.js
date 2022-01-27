@@ -32,7 +32,7 @@ function sendEmail(e){
 	Email.send({
 		Host:"smtp.gmail.com",
 		Username:"bgh0001@alu.medac.es",
-		Password:"Amxmodmenu1234",
+		Password:"**************",
 		To: e,
 		From: "bgh0001@alu.medac.es",
 		Subject:"Sending Email Using JS",
