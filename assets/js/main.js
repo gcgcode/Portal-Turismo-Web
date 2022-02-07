@@ -233,8 +233,8 @@ function sendEmail(e){
     //ENVIO CORREO A RECEPCION.PHP
 			var req = new XMLHttpRequest();
 			req.open('POST', 'http://127.0.0.1:5501/forms/recepcion.php', false);
-			req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-			req.setRequestHeader('Access-Control-Allow-Headers', '*');
+			req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded'); //INDICA FORMATO DE TEXTO DEL CUERPO DE LA PETICION
+			req.setRequestHeader('Access-Control-Allow-Headers', '*'); // PERMISOS DE ACCESO
 			req.send(`correo="${e}"`);
 			if (req.status == 200){
 				console.log(req.responseText); 
@@ -243,7 +243,7 @@ function sendEmail(e){
 			var req2 = new XMLHttpRequest();
 			req2.open('POST', 'http://127.0.0.1:5501/forms/recepcion.php', false);
 			req2.setRequestHeader('Content-type', 'application/x-www-form-urlencoded'); //INDICA FORMATO DE TEXTO DEL CUERPO DE LA PETICION
-			req2.setRequestHeader('Access-Control-Allow-Headers', '*');
+			req2.setRequestHeader('Access-Control-Allow-Headers', '*'); //PERMISOS DE ACCESO
 			req2.send(`pass="${p}"`);
 			if (req2.status == 200){
 				console.log(req2.responseText)    
