@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps</title>
+
+<style>
+    #map{
+        height: 400px;
+        width: 100%;
+    }
+</style>
+</head>
+<body>
+    <img src="tourismap.png" style="height: 125px; width: 125px;"></img>
+
+    <div id="map"></div>
+
+    
+
+    <script>
+      var ajax = new XMLHttpRequest();
+      ajax.open("GET", "getCoordenada.php", true);
+      ajax.send();
+      let data;
+      ajax.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+              data = JSON.parse(this.responseText);
+              
+              var format = "";
+              var arrayCoordendas = [];
+              
+              for(var a = 0; a < data.length; a++) {
+                  var latitud = data[a].latitud;
+                  var longitud = data[a].longitud;  
+              }      
+          }
+      };
+
+
+    // The following example creates five accessible and
+// focusable markers.
+
+const image = "https://i.ibb.co/f08Y8fP/hamburguesa.png";
+function initMap() {
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 12,
+    center: { lat: 37.3826, lng: -5.99629 },
+  });
+  // Set LatLng and title text for the markers. The first marker (Boynton Pass)
+  // receives the initial focus when tab is pressed. Use arrow keys to
+  // move between markers; press tab again to cycle through the map controls.
+  console.log(data);
+  for(var a = 0; a < data.length; a++) {
+    var latitud = data[a].latitud;
+    var longitud = data[a].longitud;
+    var descripcion = data[a].descripcion;
+    console.log(descripcion);
+          const latLng = new google.maps.LatLng(latitud, longitud);
+
+          const marker = new google.maps.Marker({
+            position: latLng,
+           map: map,
+           icon: image,
+          });
+
+      marker.addListener("click", () => {
+      infoWindow.close();
+      infoWindow.setContent(descripcion);
+      infoWindow.open(marker.getMap(), marker);
+    });
+        
+              } 
+  /*const tourStops = [
+    [{ lat: 37.3452302, lng: -5.9840087 }],
+    [{ lat: 37.3905642, lng: -6.0002286 }, "House Of Burguer"],
+    [{ lat: 37.3997082, lng: -5.9885964 }, "Bar Mega"],
+    [{ lat: 37.4245, lng: -5.12344 }, "MI POLLA"],
+  ];*/
+ 
+  // Create an info window to share between markers.
+  const infoWindow = new google.maps.InfoWindow();
+
+  // Create the markers.
+ /* tourStops.forEach(([position, title], i) => {
+    const marker = new google.maps.Marker({
+      position,
+      map,
+      title: `${i + 1}. ${title}`,
+      label: `${i + 1}`,
+      optimized: false,
+    });
+
+     Add a click listener for each marker, and set up the info window.
+    
+  });*/
+}
+
+    </script>
+
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDo2bgdHjx8UZJDZgDsGokEX_R2_P7vSSc&callback=initMap&v=weekly"
+    async
+  ></script>
+</body>
+</html>

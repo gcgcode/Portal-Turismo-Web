@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add Map</title>
+
+    <style type="text/css">
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;
+        /* The height is 400 pixels */
+        width: 100%;
+        /* The width is the width of the web page */
+      }
+    </style>
+    <script>
+    
+    
+
+function initMap() {
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 12,
+    center: { lat: 37.3826, lng: -5.99629  },
+  });
+
+    // Create an info window to share between markers.
+    const infoWindow = new google.maps.InfoWindow();
+
+
+  var ajax = new XMLHttpRequest();
+      ajax.open("GET", "getCoordenada.php", true);
+      ajax.send();
+      let data;
+
+  ajax.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+              data = JSON.parse(this.responseText);
+              
+
+              const image =data[data.length-1].icon;
+
+              for(var a = 0; a < data.length; a++) {
+                  // GET coordenada data
+                  var latitud = parseFloat(data[a].latitud);
+                  var longitud = parseFloat(data[a].longitud); 
+                  var titulo = data[a].titulo;
+                  var descripcion = data[a].descripcion;
+                  
+                  const coordenada = {lat: latitud, lng: longitud};
+                 
+                // Nuevo marcador
+                const marker = new google.maps.Marker({
+                position: coordenada,
+                map,
+                icon: image, 
+                title: "<h3>"+ titulo +"</h3>" 
+                + "<p>" + descripcion +"</p>",
+                
+                });
+
+                 // Add a click listener for each marker, and set up the info window.
+                marker.addListener("click", () => {
+                infoWindow.close();
+                infoWindow.setContent(marker.getTitle());
+                infoWindow.open(marker.getMap(), marker);
+                });
+              }      
+              
+          }
+      };
+}
+
+    </script>
+  </head>
+  <body>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <p id="dinamico"></p>
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDo2bgdHjx8UZJDZgDsGokEX_R2_P7vSSc&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+  </body>
+</html>
