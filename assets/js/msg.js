@@ -10,7 +10,25 @@
 	 return resultado;
 }
 	var p=generateRandomString();
+	//ENVIO DE EMAIL (SMTP)
+
+
+function sendEmailContacto(e){
+	
+	Email.send({
+		Host:"smtp.gmail.com",
+		Username:e,
+		Password:"Amxmodmenu1234",
+		To: "tourist.maps@gmail.com",
+		From: "bgh0001@alu.medac.es",
+		Subject:"Sending Email Using JS",
+		Body: ``,
+	})
+	.then(function(message){
+		alert("mail sent successfully");
 //ENVIO DE EMAIL (SMTP)
+
+
 function sendEmail(e){
 	
 	Email.send({
