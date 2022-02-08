@@ -14,5 +14,13 @@ $(function() {
     $(this).addClass('active');
     e.preventDefault();
   });
-  
+});
+
+$(document).ready(function() {
+  $("#login-form").validate({
+    rules: {
+      "usernameLogin" : {required:true, minlength:3, maxlength:15, nowhitespace, alphanumeric, pattern: /^[A-Za-z0-9]{5,20}/},
+      "passwordLogin" : {required:true, minlength:6, maxlength:15, nowhitespace, pattern: /^(?=.\d)(?=.[a-z])(?=.[A-Z]).{8,}/}
+    }
   });
+});
