@@ -54,7 +54,7 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
 }elseif($_SERVER['REQUEST_METHOD']=='POST'){
 
     // INSERT COORDENADA
-    if ((isset($_POST['latitud']) && isset($_POST['longitud']) && isset($_POST['titulo']) && isset($_POST['descripcion']) && isset($_POST['direccion']) && isset($_POST['telefono']) && isset($_POST['img']) && isset($_POST['id_categoria'])) {
+    if (isset($_POST['latitud']) && isset($_POST['longitud']) && isset($_POST['titulo']) && isset($_POST['descripcion']) && isset($_POST['direccion']) && isset($_POST['telefono']) && isset($_POST['img']) && isset($_POST['id_categoria'])) {
     
     header("HTTP/1.1 200 POST OK");
     $latitud=$_POST['latitud'];
@@ -76,7 +76,8 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
 
 }elseif($_SERVER['REQUEST_METHOD']=='PUT'){
     header("HTTP/1.1 200 (PUT OK)");
-
+      
+    $id_coordenada=$_POST['id_coordenada'];
     $latitud=$_POST['latitud'];
     $longitud=$_POST['longitud'];
     $titulo=$_POST['titulo'];
@@ -86,7 +87,7 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
     $img=$_POST['img'];
     $id_categoria=$_POST['id_categoria'];
    
-    $orden="UPDATE touristmap.coordenada SET LATITUD='', LONGITUD='' ,TITULO='', DESCRIPCION='', DIRECCION='', TELEFONO='', IMG='', ID_CATEGORIA='' WHERE ID_COORDENADA='$id_coordenada';";
+    $orden="UPDATE touristmap.coordenada SET LATITUD='$latitud', LONGITUD='$longitud' ,TITULO='$titulo', DESCRIPCION='$descripcion', DIRECCION='$direccion', TELEFONO='$telefono', IMG='$img', ID_CATEGORIA='$id_categoria' WHERE ID_COORDENADA='$id_coordenada';";
     $conexion->query($orden);
 
 
@@ -95,7 +96,7 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
 
         $id_coordenada=$_GET['id_coordenada'];
 
-        $orden="DELETE FROM coordenada WHERE ID_COORDENADA=$id_coordenada";
+        $orden="DELETE FROM touristmap.coordenada WHERE ID_COORDENADA=$id_coordenada";
         $conexion->query($orden);
 }else{
     header("HTTP/1.1 400 INVALID REQUEST");
