@@ -5,24 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
 </head>
 <body>
     <form class ="form" method="POST" >
         <h1>Insertar coordenada</h1>
-        <select name="categoria">
+        <select id="categoria" name="categoria">
             <option value="1">Monumento</option>
             <option value="2">Aire libre</option>
             <option value="3">Evento</option>
         </select><br>
-    	<input type="text" name="latitud" placeholder="Latitud"><br>
-    	<input type="text" name="longitud" placeholder="Longitud"><br>
-    	<input type="text" name="direccion" placeholder="Direccion"><br>
-        <input type="text" name="titulo" placeholder="Nombre el lugar"><br>
-        <textarea  cols="40" rows="10" name="descripcion" placeholder="Escribe una descripcion"></textarea><br>
-    	<input type="url" name="img" placeholder="URL"><br>
+    	<input type="text" id="latitud" name="latitud" placeholder="Latitud"><br>
+    	<input type="text" id="longitud" name="longitud" placeholder="Longitud"><br>
+    	<input type="text" id="direccion" name="direccion" placeholder="Direccion"><br>
+    	<input type="text" id="telefono" name="telefono" placeholder="Telefono"><br>
+        <input type="text" id="titulo" name="titulo" placeholder="Nombre el lugar"><br>
+        <textarea  cols="40" rows="10" name="descripcion" id="descripcion"  placeholder="Escribe una descripcion"></textarea><br>
+    	<input type="url" id="img" name="img" placeholder="URL"><br>
     	
-    	<button type="button" name="register">Guardar coordenada</button>
+    	<button type="button" onclick="insert()" name="register">Guardar coordenada</button>
     </form>
-    <script src="/assets/js/insertCoordenada.js"></script>
+    <script src="../assets/js/insertCoordenada.js"></script>
+
 </body>
 </html>
