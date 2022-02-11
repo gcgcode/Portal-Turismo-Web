@@ -179,5 +179,14 @@
   }
 })()
 
+/**
+ * Integración Dinámica de Información en monumento.html
+ */
 
- 
+  document.getElementById("titleMonumento").innerHTML= "";
+  document.getElementById("tituloMonumento").innerHTML="";
+  document.getElementById("idDireccionMonument").innerHTML="";
+  document.getElementById("idTelefonoMonumento").innerHTML="";
+  document.getElementById("idHorarioMonumento").innerHTML="";
+  document.getElementById("imgMonumento").innerHTML="";
+  document.getElementById("textoMonumento").innerHTML="";
