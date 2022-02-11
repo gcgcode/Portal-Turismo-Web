@@ -16,7 +16,7 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
         $orden="SELECT * FROM touristmap.coordenada WHERE ID_COORDENADA='$id_coordenada';";
 
         $res= $conexion->query($orden);
-        $res_string = $res->fetch_all();
+        $res_string = $res->fetch_assoc();
         echo json_encode($res_string);
 
         
@@ -26,9 +26,14 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
         $categoria=$_GET['categoria'];
     
         $orden="SELECT * FROM touristmap.coordenada WHERE ID_CATEGORIA=(SELECT ID_CATEGORIA FROM touristmap.categoria WHERE NOMBRE = '$categoria');";
-        $res= $conexion->query($orden);
-        $res_string = $res->fetch_all();
-        echo json_encode($res_string);
+        $result = mysqli_query($conexion, $orden);
+
+        $data = array();
+        while ($row = mysqli_fetch_object($result))
+        {
+            array_push($data, $row);
+        }
+        echo json_encode($data);
 
     }elseif(isset($_GET['titulo'])){ // SELECT COORDENADA FILTER BY TITULO
         header("HTTP/1.1 200 GET OK");
