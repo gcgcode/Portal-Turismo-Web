@@ -15,15 +15,20 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
         $id_coordenada=$_GET['id_coordenada'];
         $orden="SELECT * FROM touristmap.coordenada WHERE ID_COORDENADA='$id_coordenada';";
 
-        $res= $conexion->query($orden);
-        $res_string = $res->fetch_assoc();
-        echo json_encode($res_string);
+        $result = mysqli_query($conexion, $orden);
+
+        $data = array();
+        while ($row = mysqli_fetch_object($result))
+        {
+            array_push($data, $row);
+        }
+        echo json_encode($data);
 
         
-    }elseif(isset($_GET['categoria'])){ // SELECT COORDENADA FILTER BY CATEGORIA
+    }elseif(isset($_GET['id_categoria'])){ // SELECT COORDENADA FILTER BY CATEGORIA
         header("HTTP/1.1 200 GET OK");
 
-        $categoria=$_GET['categoria'];
+        $categoria=$_GET['id_categoria'];
     
         $orden="SELECT * FROM touristmap.coordenada WHERE ID_CATEGORIA=(SELECT ID_CATEGORIA FROM touristmap.categoria WHERE NOMBRE = '$categoria');";
         $result = mysqli_query($conexion, $orden);
@@ -41,17 +46,27 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
         $titulo=$_GET['titulo'];
     
         $orden="SELECT * FROM touristmap.coordenada WHERE titulo='$titulo';";
-        $res= $conexion->query($orden);
-        $res_string = $res->fetch_all();
-        echo json_encode($res_string);
+        $result = mysqli_query($conexion, $orden);
+
+        $data = array();
+        while ($row = mysqli_fetch_object($result))
+        {
+            array_push($data, $row);
+        }
+        echo json_encode($data);
 
     }else{
         // DEFAULT
         header("HTTP/1.1 200 quepasa");
         $orden="SELECT * FROM touristmap.coordenada;";
-        $res= $conexion->query($orden);
-        $res_string = $res->fetch_all();
-        echo json_encode($res_string);
+        $result = mysqli_query($conexion, $orden);
+
+        $data = array();
+        while ($row = mysqli_fetch_object($result))
+        {
+            array_push($data, $row);
+        }
+        echo json_encode($data);
 
     }
     
@@ -73,8 +88,14 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
 
     $orden="INSERT INTO touristmap.coordenada(LATITUD,LONGITUD,TITULO, DESCRIPCION, DIRECCION, TELEFONO, IMG, ID_CATEGORIA) VALUES('$latitud','$longitud','$titulo','$descripcion','$direccion','$telefono','$img','$id_categoria');";
 
-    $conexion->query($orden);
-    echo json_encode($conexion->insert_id);
+    $result = mysqli_query($conexion, $orden);
+
+    $data = array();
+    while ($row = mysqli_fetch_object($result))
+    {
+        array_push($data, $row);
+    }
+    echo json_encode($data);
 
     }
  
@@ -93,7 +114,15 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
     $id_categoria=$_POST['id_categoria'];
    
     $orden="UPDATE touristmap.coordenada SET LATITUD='$latitud', LONGITUD='$longitud' ,TITULO='$titulo', DESCRIPCION='$descripcion', DIRECCION='$direccion', TELEFONO='$telefono', IMG='$img', ID_CATEGORIA='$id_categoria' WHERE ID_COORDENADA='$id_coordenada';";
-    $conexion->query($orden);
+    
+    $result = mysqli_query($conexion, $orden);
+
+        $data = array();
+        while ($row = mysqli_fetch_object($result))
+        {
+            array_push($data, $row);
+        }
+        echo json_encode($data);
 
 
 }elseif($_SERVER['REQUEST_METHOD']=='DELETE'){
@@ -102,7 +131,14 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
         $id_coordenada=$_GET['id_coordenada'];
 
         $orden="DELETE FROM touristmap.coordenada WHERE ID_COORDENADA=$id_coordenada";
-        $conexion->query($orden);
+        $result = mysqli_query($conexion, $orden);
+
+        $data = array();
+        while ($row = mysqli_fetch_object($result))
+        {
+            array_push($data, $row);
+        }
+        echo json_encode($data);
 }else{
     header("HTTP/1.1 400 INVALID REQUEST");
 }
