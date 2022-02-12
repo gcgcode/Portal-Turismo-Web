@@ -20,7 +20,7 @@
     
     <?php
 
-    include('db_conn.php');
+    include('../database/db_conn.php');
 
     if (isset($_POST['register'])) {
         if (strlen($_POST['user']) >= 1 && strlen($_POST['pass']) >= 1) {
@@ -39,7 +39,7 @@
                 session_start();
                 $_SESSION['user'] = $user; // Alamacenamos usuario en una sesion para usarlo a home.php
                 
-                header('location: index.php');
+                header('location: ../../admin-panel/addElements.html');
             } else{
                 echo "<p>Usuario o contraseña incorrecta. Vuelve a comprobarlo.</p>";
             }

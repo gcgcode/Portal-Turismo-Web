@@ -139,7 +139,7 @@ junto con sus tablas.
 
     
         <?php 
-        include("db_conn.php"); // Incluimos la conexion con la bbdd
+        include("../database/db_conn.php"); // Incluimos la conexion con la bbdd
 
         $conn = dbConn();
 

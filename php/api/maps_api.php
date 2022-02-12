@@ -1,10 +1,7 @@
 <?php
-$servername="localhost";
-$username="root";
-$password="";
-$bd="touristmap";
+include("../database/db_conn.php");
 
-$conexion= new mysqli($servername,$username,$password,$bd);
+$conexion= dbConn();
 
 // GET
 if($_SERVER['REQUEST_METHOD']=='GET'){
