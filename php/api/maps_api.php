@@ -100,26 +100,19 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
 }elseif($_SERVER['REQUEST_METHOD']=='PUT'){
     header("HTTP/1.1 200 (PUT OK)");
       
-    $id_coordenada=$_POST['id_coordenada'];
-    $latitud=$_POST['latitud'];
-    $longitud=$_POST['longitud'];
-    $titulo=$_POST['titulo'];
-    $descripcion=$_POST['descripcion'];
-    $direccion=$_POST['direccion'];
-    $telefono=$_POST['telefono'];
-    $img=$_POST['img'];
-    $id_categoria=$_POST['id_categoria'];
+    $id_coordenada=$_GET['id_coordenada'];
+    $latitud=$_GET['latitud'];
+    $longitud=$_GET['longitud'];
+    $titulo=$_GET['titulo'];
+    $descripcion=$_GET['descripcion'];
+    $direccion=$_GET['direccion'];
+    $telefono=$_GET['telefono'];
+    $img=$_GET['img'];
+    $id_categoria=$_GET['id_categoria'];
    
     $orden="UPDATE touristmap.coordenada SET LATITUD='$latitud', LONGITUD='$longitud' ,TITULO='$titulo', DESCRIPCION='$descripcion', DIRECCION='$direccion', TELEFONO='$telefono', IMG='$img', ID_CATEGORIA='$id_categoria' WHERE ID_COORDENADA='$id_coordenada';";
     
-    $result = mysqli_query($conexion, $orden);
-
-        $data = array();
-        while ($row = mysqli_fetch_object($result))
-        {
-            array_push($data, $row);
-        }
-        echo json_encode($data);
+    $conexion->query($orden);
 
 
 }elseif($_SERVER['REQUEST_METHOD']=='DELETE'){
@@ -128,14 +121,8 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
         $id_coordenada=$_GET['id_coordenada'];
 
         $orden="DELETE FROM touristmap.coordenada WHERE ID_COORDENADA=$id_coordenada";
-        $result = mysqli_query($conexion, $orden);
 
-        $data = array();
-        while ($row = mysqli_fetch_object($result))
-        {
-            array_push($data, $row);
-        }
-        echo json_encode($data);
+        $conexion->query($orden);
 }else{
     header("HTTP/1.1 400 INVALID REQUEST");
 }

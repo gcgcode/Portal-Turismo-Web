@@ -8,14 +8,6 @@ function insert() {
     var titulo = document.getElementById("titulo").value;
     var descripcion = document.getElementById("descripcion").value;
     var img = document.getElementById("img").value;
-    console.log(categoria);
-    console.log(latitud);
-    console.log(longitud);
-    console.log(direccion);
-    console.log(telefono);
-    console.log(titulo);
-    console.log(descripcion);
-    console.log(img);
     
     var ajax = new XMLHttpRequest();
     ajax.onreadystatechange = function() {
@@ -26,7 +18,7 @@ function insert() {
   };
   ajax.open("POST", "../../proyectoFinal/php/api/maps_api.php", true);
          let formData = new FormData();
-           console.log('aaaaa');
+
            formData.append('id_categoria', categoria);
            formData.append('latitud', latitud);
            formData.append('longitud', longitud);
@@ -36,6 +28,7 @@ function insert() {
            formData.append('descripcion', descripcion);
            formData.append('img', img);
            
+           console.log(formData);
           ajax.send(formData);
 }
      
