@@ -32,7 +32,7 @@ window.onload = function () {
                 var td7 = '<td data-target="telefono">'+telefono+'</td>'
                 var td8 = '<td data-target="img">'+img+'</td>'
                 var td9 = '<td data-target="categoria">'+categoria+'</td>'
-                var td10 = '<td><a href="#" data-role="update" data-id="'+id+'">Actualizar</a></td>';
+                var td10 = '<td><p><a href="#" data-role="update" data-id="'+id+'">Actualizar</a></p><p><a href="#" data-role="delete" data-id="'+id+'">Eliminar</a></p></td>';
                 var closeTr = '</tr>';
                 var trResult = openTr + td1 + td2 + td3 + td4 + td5 + td6 + td7 + td8 + td9 + td10 + closeTr;
                 getElement.insertAdjacentHTML( 'beforeend', trResult );
