@@ -1,5 +1,5 @@
 window.onload = function () {
-    
+    // Al cargar la página muestra todas las coordenadas
     var ajax = new XMLHttpRequest();
       ajax.open("GET", "../../../proyectoFinal/php/api/maps_api.php", true);
       ajax.send();
@@ -42,9 +42,31 @@ window.onload = function () {
   }
 
 }
+// Al pulsar BORRAR
+$(document).ready(function(){
+    $(document).on('click','a[data-role=delete]', function(){
+        var id= $(this).data('id');
 
+        var ajax = new XMLHttpRequest();
+
+        var query = "../../../proyectoFinal/php/api/maps_api.php?id_coordenada="+id;
+
+        ajax.open("DELETE", query, true);
+        ajax.send();
+    
+      ajax.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                  location.reload();
+                 
+              }
+      }
+    });
+});
+
+// Al pulsar ACTUALIZAR 
 $(document).ready(function(){
     $(document).on('click','a[data-role=update]', function(){
+        // Selecciona los datos de cada elemento
         var id= $(this).data('id');
         var titulo= $('#'+id).children('td[data-target=titulo]').text();
         var latitud= $('#'+id).children('td[data-target=latitud]').text();
@@ -55,6 +77,7 @@ $(document).ready(function(){
         var img= $('#'+id).children('td[data-target=img]').text();
         var categoria= $('#'+id).children('td[data-target=categoria]').text();
 
+        // Insertar elementos en myModal
         $('#id_coordenada').val(id);
         $('#titulo').val(titulo);
         $('#latitud').val(latitud);
@@ -67,6 +90,7 @@ $(document).ready(function(){
         $('#myModal').modal('toggle');
     })
 
+    // Selecciona los valores de los campos myModal
     $('#save').click(function(){
         var id = $('#id_coordenada').val();
         var titulo = $('#titulo').val();
@@ -77,7 +101,8 @@ $(document).ready(function(){
         var telefono = $('#telefono').val();
         var img = $('#img').val();
         var categoria = $('#categoria').val();
-    
+        
+        // Enviar datos a database
           var ajax = new XMLHttpRequest();
 
           var query = "../../../proyectoFinal/php/api/maps_api.php?id_coordenada="
