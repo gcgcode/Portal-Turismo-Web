@@ -8,8 +8,8 @@
     $passnueva=$_POST['pass'];
     
     $correo=$_POST['correo'];
-    $orden="UPDATE usuario SET pass=$passnueva
-            WHERE idUser=1";
+    $orden="UPDATE usuario SET PASSWORD=$passnueva
+            WHERE EMAIL=$correo";
      
     $conexion->query($orden);
 
