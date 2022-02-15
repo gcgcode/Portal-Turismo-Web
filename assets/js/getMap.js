@@ -1,8 +1,4 @@
 function initMap() {
-    const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 12,
-      center: { lat: 37.4675767, lng: -5.6485727  },
-    });
   
       // Create an info window to share between markers.
       const infoWindow = new google.maps.InfoWindow();
@@ -29,14 +25,17 @@ function initMap() {
   
                 for(var a = 0; a < data.length; a++) {
                     // GET coordenada data
-                    var latitud = parseFloat(data[a].latitud);
-                    var longitud = parseFloat(data[a].longitud); 
-                    var titulo = data[a].titulo;
-                    console.log(latitud);
-                    console.log(longitud);
-                    console.log(titulo);
+                    let latitud = parseFloat(data[a].latitud);
+                    let longitud = parseFloat(data[a].longitud); 
+                    let titulo = data[a].titulo;
+      
                     const coordenada = {lat: latitud, lng: longitud};
                    
+                    const map = new google.maps.Map(document.getElementById("map"), {
+                      zoom: 12,
+                      center: { lat: latitud, lng: longitud  },
+                      
+                    });
                   // Nuevo marcador
                   const marker = new google.maps.Marker({
                   position: coordenada,
