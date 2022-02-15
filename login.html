@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+</head>
+<body>
+    <form class ="form" method="POST" id="form">
+        <h1>Accede a tu cuenta</h1>
+    	<input type="text" name="user" placeholder="username" id="username" onblur="validateForm()" required>
+    	<input type="password" name="pass" placeholder="password" id="password" onblur="validateForm()" required>
+        <br><br>
+        <a href="">¿Has olvidado tu contraseña?</a>
+        <br><br>
+    	<input type="submit" onclick="insert()" value="Login">
+    </form>
+
+    <p>¿Aún no tienes cuenta? <a href="register.html">Regístrate</a></p>
+   
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="./assets/js/ajaxLogin.js"></script>
+<script src="./assets/js/validateLogin.js"></script>
+<script src="./assets/js/jquery.validate.min.js"></script>
+<script src="./assets/js/additional-methods.min.js"></script>
+
+</html>
