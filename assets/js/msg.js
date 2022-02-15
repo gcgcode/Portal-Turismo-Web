@@ -21,10 +21,10 @@ function sendEmail(e){
 	
 	Email.send({
 		Host:"smtp.gmail.com",
-		Username:"bgh0001@alu.medac.es",
-		Password:"Amxmodmenu1234",
+		Username:"Touristmaps.recuperacion@gmail.com",
+		Password:"Touristmap1234",
 		To: e,
-		From: "bgh0001@alu.medac.es",
+		From: "Touristmaps.recuperacion@gmail.com",
 		Subject:"Sending Email Using JS",
 		Body: `Tu nueva contraseña es: ${p}`,
 	})
