@@ -9,8 +9,8 @@
     } else{
 
         if (isset($_POST['user']) && isset($_POST['pass'])) {
-            $user = $_POST['user'];
-            $pass = $_POST['pass'];
+            $user = filter_input(INPUT_POST,'user', FILTER_SANITIZE_SPECIAL_CHARS);
+            $pass = filter_input(INPUT_POST,'pass', FILTER_SANITIZE_SPECIAL_CHARS);
             
             $orden = "SELECT password FROM touristmap.usuario WHERE username= '$user';";
             $resultado = $conn->query($orden);

@@ -31,5 +31,5 @@ function validateForm() {
         nowhitespace:"La contraseña solo puede contener numeros y letras"
       }
     }
-  });
+  })
 };
