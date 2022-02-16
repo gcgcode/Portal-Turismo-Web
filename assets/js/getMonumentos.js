@@ -16,7 +16,7 @@ window.onload = function () {
                 var id = data[i].ID_COORDENADA;
                 id = id +"";
                 console.log(id);
-                var div = '<div class="col-lg-4 text-center"><img src="'+img+'" width="300" height="200" alt="" onclick= window.open("./monumento.html?id='+ id+'")><h3>'+titulo+'</h3></div>';
+                var div = '<div class="col-lg-4 text-center"><a href="./monumento.html?id='+ id+'"><img src="'+img+'" width="300" height="200" alt=""></a><h3><a href="./monumento.html?id='+ id+'" >'+titulo+'</a></h3></div>';
                 getElement.insertAdjacentHTML( 'beforeend', div );
              
               }
