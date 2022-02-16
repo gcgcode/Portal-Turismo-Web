@@ -1,7 +1,12 @@
 window.onload = function () {
     
     var ajax = new XMLHttpRequest();
-      ajax.open("GET", "../../../proyectoFinal/php/api/maps_api.php?id_categoria=monumento", true);
+      const urlParams = new URLSearchParams(window.location.search);
+      console.log(window.location.search);
+      console.log(urlParams.get('id_categoria'));
+
+      var urldest="../../../proyectoFinal/php/api/maps_api.php?id_categoria=" + urlParams.get('id_categoria');
+      ajax.open("GET", urldest, true);
       ajax.send();
       let data;
       

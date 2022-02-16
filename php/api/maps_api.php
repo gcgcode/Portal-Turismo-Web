@@ -27,7 +27,7 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
 
         $categoria=$_GET['id_categoria'];
     
-        $orden="SELECT * FROM touristmap.coordenada WHERE ID_CATEGORIA=(SELECT ID_CATEGORIA FROM touristmap.categoria WHERE NOMBRE = '$categoria');";
+        $orden="SELECT * FROM touristmap.coordenada WHERE ID_CATEGORIA='$categoria';";
         $result = mysqli_query($conexion, $orden);
 
         $data = array();
