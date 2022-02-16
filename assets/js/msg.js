@@ -18,13 +18,22 @@
 
 
 function sendEmail(e){
-	
+	console.log("hola");
 	Email.send({
-		Host:"smtp.gmail.com",
+		
+		/*Host:"smtp.gmail.com",
 		Username:"Touristmaps.recuperacion@gmail.com",
 		Password:"Touristmap1234",
 		To: e,
 		From: "Touristmaps.recuperacion@gmail.com",
+		Subject:"Sending Email Using JS",
+		Body: `Tu nueva contraseña es: ${p}`,*/
+
+		Host:"smtp.gmail.com",
+		Username:"bgh0001@alu.medac.es",
+		Password:"Amxmodmenu1234",
+		To: e,
+		From: "bgh0001@alu.medac.es",
 		Subject:"Sending Email Using JS",
 		Body: `Tu nueva contraseña es: ${p}`,
 	})
