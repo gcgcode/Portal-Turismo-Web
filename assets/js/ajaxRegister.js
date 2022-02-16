@@ -5,15 +5,23 @@ function insert() {
     var user = document.getElementById("username").value;
     var id_localidad = document.getElementById("id_localidad").value;
     var pass = document.getElementById("password").value;
+    var linea = "<p>Has iniciado sesión </p>";
 
     var ajax = new XMLHttpRequest();
     ajax.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       if (ajax.responseText == "REGOK") {
-        alert("Has iniciado sesión");
+        hideInput.insertAdjacentHTML(
+          "afterend",
+          linea
+        );
         window.open('../../proyectoFinal/admin-panel/addElements.html',"_self")
       }else{
-        alert("No se ha podido registrar el usuario");
+        linea = "<p>No se ha podido registrar el usuario</p>"
+        hideInput.insertAdjacentHTML(
+          "afterend",
+          linea
+        );
       }
     }
   };

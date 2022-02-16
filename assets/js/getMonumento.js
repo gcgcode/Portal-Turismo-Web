@@ -31,7 +31,7 @@ window.onload = function () {
 
                 img.insertAdjacentHTML(
                     "beforeend",
-                    linea // Backticks para img variable
+                    linea 
                   );
                              
                 titulo.innerHTML=valorTitulo;

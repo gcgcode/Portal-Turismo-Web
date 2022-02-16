@@ -120,7 +120,8 @@
                     <option value='105'>El Viso del Alcor</option>
                 </select><br>
     	<input type="password" id="password" name="pass" placeholder="password" onblur="validateForm()" required><br>
-    	<input type="submit" onclick="insert()" value="Registrarse" id="btn">
+    	<input type="hidden" name="hideInput" id="hideInput">
+        <input type="submit" onclick="insert()" value="Registrarse" id="btn">
     </form>
 
     <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
