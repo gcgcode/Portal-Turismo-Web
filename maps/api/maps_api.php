@@ -11,10 +11,11 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
 
     if(isset($_GET['id_coordenada'])){ // SELECT COORDENADA
         header("HTTP/1.1 200 GET OK");
-
+      
         $id_coordenada=$_GET['id_coordenada'];
         $orden="SELECT * FROM coordenada WHERE ID_COORDENADA='$id_coordenada';";
 
+        
         $res= $conexion->query($orden);
         $res_string = $res->fetch_all();
         echo json_encode($res_string);
