@@ -17,10 +17,7 @@
             $columna = $resultado->fetch_assoc();
             if(isset($columna['password'])){
                 $hash = $columna['password'];
-
             if (password_verify($pass, $hash)) {
-                session_start();
-                $_SESSION['user'] = $user;
                 echo "LOGINOK";
             }else{
                 echo "Usuario o contraseña incorrecta. Vuelve a comprobarlo.";
