@@ -6,7 +6,7 @@
 
 // Comprobamos la conexión
 if ($conn->connect_error) {
-    echo "<p>Conexion no realizada: ", $conn->connect_error,"</p>";
+    echo "Conexion no realizada: ", $conn->connect_error;
 } else{
     
     // Comprueba que los campos(name, email, username, password) esten rellenos
@@ -24,7 +24,7 @@ if ($conn->connect_error) {
         
             // Si existe
             if ($columna['contar']>0) {
-                echo "<p>Lo sentimos, el usuario ",$user, " ya existe</p>"; 
+                echo "Lo sentimos, el usuario ",$user, " ya existe"; 
             } else{ // Si no existe, se inserta el nuevo usuario
                 $hash = password_hash($pass, PASSWORD_DEFAULT);
                 $orden = "INSERT INTO touristmap.usuario (username, password, email, nombre_apellidos, id_localidad) VALUES ('$user', '$hash', '$email', '$name', '$id_localidad');";

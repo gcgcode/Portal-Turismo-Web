@@ -5,7 +5,7 @@
     $conn = dbConn();
 
     if ($conn->connect_error) {
-        echo "<p>Conexion no realizada: ", $conn->connect_error,"</p>";
+        echo "Conexion no realizada: ", $conn->connect_error;
     } else{
 
         if (isset($_POST['user']) && isset($_POST['pass'])) {
@@ -23,7 +23,7 @@
                 $_SESSION['user'] = $user;
                 echo "LOGINOK";
             }else{
-                echo "<p>Usuario o contraseña incorrecta. Vuelve a comprobarlo.</p>";
+                echo "Usuario o contraseña incorrecta. Vuelve a comprobarlo.";
             }
             }
         }
