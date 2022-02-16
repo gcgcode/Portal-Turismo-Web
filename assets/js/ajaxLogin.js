@@ -2,25 +2,17 @@ function insert() {
 
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
-    var hideInput = document.getElementById("hideInput");
-    var linea = "<p>Has iniciado sesión </p>";
+    var parrafo = document.getElementById("parrafo").value;
 
     var ajax = new XMLHttpRequest();
     ajax.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       
       if (ajax.responseText == "LOGINOK") {
-        hideInput.insertAdjacentHTML(
-          "afterend",
-          linea
-        );
+        parrafo.insertAdjacentHTML("afterbegin", "<p>Sesión iniciada</p>");
         window.open('../../proyectoFinal/admin-panel/addElements.html',"_self")
       }else{
-        linea = "<p>Usuario o contraseña incorrectos</p>"
-        hideInput.insertAdjacentHTML(
-          "afterend",
-          linea 
-        );
+        parrafo.insertAdjacentHTML("afterbegin", "<p>Usuario o contraseña incorrectos</p>");
       }
     }
   };
