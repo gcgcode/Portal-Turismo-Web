@@ -12,8 +12,6 @@
             $user = $_POST['user'];
             $pass = $_POST['pass'];
             
-            
-
             $orden = "SELECT password FROM touristmap.usuario WHERE username= '$user';";
             $resultado = $conn->query($orden);
             $columna = $resultado->fetch_assoc();
@@ -23,7 +21,6 @@
             if (password_verify($pass, $hash)) {
                 session_start();
                 $_SESSION['user'] = $user;
-                
                 echo "LOGINOK";
             }else{
                 echo "<p>Usuario o contraseña incorrecta. Vuelve a comprobarlo.</p>";
