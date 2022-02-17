@@ -15,8 +15,8 @@
             $orden = "SELECT password FROM touristmap.usuario WHERE username= '$user';";
             $resultado = $conn->query($orden);
             $columna = $resultado->fetch_assoc();
-            if(isset($columna['password'])){
-                $hash = $columna['password'];
+            if(isset($columna['pass'])){
+                $hash = $columna['pass'];
 
             if (password_verify($pass, $hash)) {
                 session_start();
