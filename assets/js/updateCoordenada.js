@@ -1,4 +1,10 @@
+if (sessionStorage.getItem("user")) {
+
 window.onload = function () {
+
+    
+        
+    
     // Al cargar la página muestra todas las coordenadas
     var ajax = new XMLHttpRequest();
       ajax.open("GET", "../../../proyectoFinal/php/api/maps_api.php", true);
@@ -40,6 +46,8 @@ window.onload = function () {
               }
           }
   }
+
+
 
 }
 // Al pulsar BORRAR
@@ -120,5 +128,9 @@ $(document).ready(function(){
         }
     
     });
+    
 });
 
+} else{
+    window.open("../../proyectoFinal/login.html", "_self");
+}

@@ -13,46 +13,56 @@
     />
 
     <!-- Vendor CSS Files -->
-    <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet" />
+    <link href="../assets/vendor/animate.css/animate.min.css" rel="stylesheet" />
     <link
-      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      href="../assets/vendor/bootstrap/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <link
-      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      href="../assets/vendor/bootstrap-icons/bootstrap-icons.css"
       rel="stylesheet"
     />
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
     <link
-      href="assets/vendor/glightbox/css/glightbox.min.css"
+      href="../assets/vendor/glightbox/css/glightbox.min.css"
       rel="stylesheet"
     />
-    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
     <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="../assets/css/style.css" rel="stylesheet" />
 </head>
 <body>
-    <form class ="form" method="POST" name="form" id="form">
-        <h1>Insertar coordenada</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col">
+      <form class ="form" method="POST" name="form" id="form">
+        <h3>Insertar coordenada</h3>
+        <br>
+        <label for="">Tipo de Elemento</label>
         <select id="categoria" name="categoria">
             <option value="1">Monumento</option>
             <option value="2">Aire libre</option>
             <option value="3">Evento</option>
-        </select><br>
-    	<input type="text" id="latitud" name="latitud" placeholder="Latitud" onblur="check_lat()" value="00.0000000"><br>
-    	<input type="text" id="longitud" name="longitud" placeholder="Longitud" onblur="check_lon()" value="-0.0000000"><br>
-    	<input type="text" id="direccion" name="direccion" placeholder="Direccion" onblur="validateForm()"><br>
-    	<input type="text" id="telefono" name="telefono" placeholder="Telefono" onblur="validateForm()"><br>
-        <input type="text" id="titulo" name="titulo" placeholder="Nombre el lugar" onblur="validateForm()"><br>
-        <textarea  cols="40" rows="10" name="descripcion" id="descripcion"  placeholder="Escribe una descripcion"></textarea><br>
-    	<input type="url" id="img" name="img" placeholder="URL" onblur="validateForm()"><br>
-    	
-    	<button type="button" onclick="insert()" id="register">Guardar coordenada</button>
+        </select><br><br>
+    	<input type="text" id="latitud" name="latitud" placeholder="Latitud"  pattern="^-?\d+(,\d+)*(\.\d+)?$" maxlength="10" title="Inserte un formato de latitud correcto" required>
+    	<input type="text" id="longitud" name="longitud" placeholder="Longitud"  pattern="^-?\d+(,\d+)*(\.\d+)?$" maxlength="10" title="Inserte un formato de longitud correcto"required><br><br>
+    	<input type="text" id="direccion" name="direccion" placeholder="Direccion"  pattern="^[#.0-9a-zA-Z\s,-]+$" title="Inserte un formato de direccion correcto" required>
+    	<input type="text" id="telefono" name="telefono" placeholder="Telefono"  pattern="^\d{9}$" title="Inserte un número de telefono correcto"required><br><br>
+      <input type="text" id="titulo" name="titulo" placeholder="Nombre el lugar"  pattern="^[a-zA-Z0-9_ ]*$" title="Inserte un formato nombre correcto">
+    	<input type="url" id="img" name="img" placeholder="URL Imagen"  title="Inserte un formato de URL correcto" pattern="(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})" required><br><br>
+      <textarea  cols="45" rows="10" name="descripcion" id="descripcion"  placeholder="Escribe una descripcion" ></textarea><br><br>
+    	<button type="button" class="btn btn-danger" onclick="insert()" disabled id="guardar">Guardar</button>
+    	<button type="button" class="btn btn-danger" onclick="window.location.href='updateElements.html'" id="register">Panel de Control</button>
     </form>
+    </div>
+  </div>
+</div>
+
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../assets/js/addElements.js"></script>
+    <script src="../assets/js/validateInsert.js"></script>
     <script src="../assets/js/insertCoordenada.js"></script>
     <script src="../assets/js/jquery.validate.min.js"></script>
     <script src="../assets/js/additional-methods.min.js"></script>
