@@ -11,11 +11,21 @@ if ($conn->connect_error) {
     
     // Comprueba que los campos(name, email, username, password) esten rellenos
         if (isset($_POST['user']) && isset($_POST['pass']) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['id_localidad'])) { 
+            
             $user = trim($_POST['user']);
+            $nuevoUser=filter_var($user, FILTER_SANITIZE_ENCODED);
             $pass = trim($_POST['pass']);
-            $email = trim($_POST['email']);
+            $nuevoPass=filter_var($pass, FILTER_SANITIZE_ENCODED);
+            $email = $_POST['email'];
+            $nuevoEmail=filter_var($email, FILTER_SANITIZE_EMAIL);
+            $boolEmail=filter_var($nuevoEmail, FILTER_VALIDATE_EMAIL);
+            if($boolEmail){ $emailFV=$boolEmail; }
             $name = trim($_POST['name']);
+            $nuevoName=filter_var($name, FILTER_SANITIZE_ENCODED);
+            if($_POST['id_localidad']>=1 || $_POST['id_localidad']<=105){
 			$id_localidad = $_POST['id_localidad'];
+            }
+            
 
             // Comprobar si el usuario existe
             $orden = "SELECT COUNT(*) AS contar FROM touristmap.usuario WHERE username = '$user';";

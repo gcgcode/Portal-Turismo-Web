@@ -27,7 +27,7 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
 
         $categoria=$_GET['id_categoria'];
     
-        $orden="SELECT * FROM touristmap.coordenada WHERE ID_CATEGORIA=(SELECT ID_CATEGORIA FROM touristmap.categoria WHERE NOMBRE = '$categoria');";
+        $orden="SELECT * FROM touristmap.coordenada WHERE ID_CATEGORIA='$categoria';";
         $result = mysqli_query($conexion, $orden);
 
         $data = array();
@@ -43,6 +43,21 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
         $titulo=$_GET['titulo'];
     
         $orden="SELECT * FROM touristmap.coordenada WHERE titulo='$titulo';";
+        $result = mysqli_query($conexion, $orden);
+
+        $data = array();
+        while ($row = mysqli_fetch_object($result))
+        {
+            array_push($data, $row);
+        }
+        echo json_encode($data);
+
+    }elseif(isset($_GET['username'])){ // SELECT USER-DATA FILTER BY USERNAME
+        header("HTTP/1.1 200 GET OK");
+
+        $username=$_GET['username'];
+    
+        $orden="SELECT touristmap.usuario.email, touristmap.usuario.nombre_apellidos, touristmap.usuario.username, (SELECT touristmap.localidad.nombre FROM touristmap.localidad WHERE ID_LOCALIDAD = (SELECT ID_LOCALIDAD from touristmap.usuario where touristmap.usuario.username = '$username' LIMIT 1)) AS localidad FROM touristmap.usuario WHERE username = '$username' ;";
         $result = mysqli_query($conexion, $orden);
 
         $data = array();

@@ -10,7 +10,6 @@
 
     <!-- Favicons -->
     <link href="/assets/img/favicon.png" rel="icon" />
- 
 
     <!-- Google Fonts -->
     <link
@@ -19,51 +18,56 @@
     />
 
     <!-- Vendor CSS Files -->
-    <link href="/assets/vendor/animate.css/animate.min.css" rel="stylesheet" />
+    <link href="../assets/vendor/animate.css/animate.min.css" rel="stylesheet" />
     <link
-      href="/assets/vendor/bootstrap/css/bootstrap.min.css"
+      href="../assets/vendor/bootstrap/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <link
-      href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      href="../assets/vendor/bootstrap-icons/bootstrap-icons.css"
       rel="stylesheet"
     />
-    <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
     <link
-      href="/assets/vendor/glightbox/css/glightbox.min.css"
+      href="../assets/vendor/boxicons/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <link href="/assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
-    <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link
+      href="../assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
     <!-- Template Main CSS File -->
-    <link href="/assets/css/style.css" rel="stylesheet" />
+    <link href="../assets/css/style.css" rel="stylesheet" />
   </head>
 
   <body>
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top d-flex align-items-center">
       <div class="container d-flex align-items-center">
-      <a href="/index.html" class="me-auto"><img src="/assets/img/header.png" ></a>
+        <a href="../index.html" class="me-auto"
+          ><img src="../assets/img/header.png"
+        /></a>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-  
+
         <nav id="navbar" class="navbar">
           <ul>
-            <li><a href="/index.html" class="active">Inicio</a></li>
-  
+            <li><a href="../index.html" class="active">Inicio</a></li>
+
             <li class="dropdown">
               <a href="#"
                 ><span>Turismo</span> <i class="bi bi-chevron-down"></i
               ></a>
               <ul>
-                <li><a href="/monumentos.html">Monumentos</a></li>
-                <li><a href="/aire-libre.html">Aire libre</a></li>
-                <li><a href="/eventos.html">Eventos</a></li>
+                <li><a href="../monumentos.html">Monumentos</a></li>
+                <li><a href="../aire-libre.html">Aire libre</a></li>
+                <li><a href="../eventos.html">Eventos</a></li>
               </ul>
             </li>
-            <li><a href="/contacto.html">Contacta</a></li>
-            <li><a href="/login.html" class="getstarted">Iniciar sesión</a></li>
+            <li><a href="../contacto.html">Contacta</a></li>
+            <li><a href="../login.html" class="getstarted">Iniciar sesión</a></li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
@@ -72,15 +76,53 @@
     </header>
     <!-- End Header -->
     <main id="main">
-        <section>
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <h1>Bienvenido Admin</h1>
-                    </div>
-                </div>
+      <!-- ======= Breadcrumbs ======= -->
+      <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="row">
+              <div id="bienvenido" class="col text-center">
+                
+              </div>
             </div>
-        </section>
+            <ol>
+              <li><a href="../index.html">Home</a></li>
+              <li>Admin</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+      <!-- End Breadcrumbs -->
+
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col ">
+              <h2><b>Datos</b></h2>
+              <hr style="border: 2px solid black" />
+            </div>
+          </div>
+          <div class="row">
+            <div id="user-data"class="col ">
+             
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <h2><b>Editar Contenido</b></h2>
+              <hr style="border: 2px solid black" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col text-center">
+              <a href="addElements.html"><button type="button" class="btn btn-danger" style="width: 50%;" >Panel de Control</button></a>
+
+             </div>
+        </div>
+      </section>
     </main>
     <!-- ======= Footer ======= -->
     <footer id="footer">
@@ -113,10 +155,10 @@
                 </div>
               </div>
             </div>
-  
+
             <div class="col-lg-4 col-md-6 footer-links text-center">
               <h4>¿Necesitas ayuda?</h4>
-              <ul style="width: 50%;margin: auto;">
+              <ul style="width: 50%; margin: auto">
                 <li>
                   <i class="bx bx-chevron-right"></i> <a href="#">Inicio</a>
                 </li>
@@ -138,10 +180,10 @@
                 </li>
               </ul>
             </div>
-  
+
             <div class="col-lg-4 col-md-6 footer-links text-center">
               <h4>Conoce <b>Carmona</b></h4>
-              <ul style="width: 50%;margin: auto;">
+              <ul style="width: 50%; margin: auto">
                 <li>
                   <i class="bx bx-chevron-right"></i> <a href="#">Monumentos</a>
                 </li>
@@ -156,15 +198,16 @@
           </div>
         </div>
       </div>
-  
+
       <div class="container">
         <div class="copyright">
           &copy; Copyright <strong><span>TouristMap</span></strong
           >. All Rights Reserved
         </div>
       </div>
-    </footer><!-- End Footer -->
-  
+    </footer>
+    <!-- End Footer -->
+
     <!-- End Footer -->
 
     <a
@@ -174,14 +217,15 @@
     ></a>
 
     <!-- Vendor JS Files -->
-    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="/assets/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="/assets/vendor/php-email-form/validate.js"></script>
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="../assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="../assets/vendor/php-email-form/validate.js"></script>
 
     <!-- Template Main JS File -->
-    <script src="/assets/js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/getUserData.js"></script>
   </body>
 </html>
