@@ -32,4 +32,11 @@ function validateForm() {
       }
     }
   })
+  $('#form').on('keyup blur', function(){
+    if($('#form').valid()){
+      $('#btn').prop('disabled', false);
+    }else{
+      $('#btn').prop('disabled', 'disabled');
+    }
+  });
 };

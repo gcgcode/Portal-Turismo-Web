@@ -15,7 +15,7 @@ function insert() {
       var url = '../../proyectoFinal/admin-panel/index.html?username=' + user;
       window.open(url,"_self");
     }else{
-      parrafo.insertAdjacentHTML("beforeend", "<p>Usuario o contraseña incorrectos</p>");
+      parrafo.innerHTML="Usuario o contraseña incorrectos";
     }
   }
 };
