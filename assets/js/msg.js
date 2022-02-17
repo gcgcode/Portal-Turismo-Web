@@ -25,26 +25,22 @@ function sendEmail(e){
 		
 	})
 	.then(function(message){
-		alert("mail sent successfully");
-    /*//ENVIO CORREO A RECEPCION.PHP
-			var req = new XMLHttpRequest();
-			req.open('POST', 'http://127.0.0.1:5501/forms/recepcion.php', false);
-			req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded'); //INDICA FORMATO DE TEXTO DEL CUERPO DE LA PETICION
-			req.setRequestHeader('Access-Control-Allow-Headers', '*'); // PERMISOS DE ACCESO
-			req.send(`correo="${e}"`);
-			if (req.status == 200){
-				console.log(req.responseText); 
-			}
-      //ENVIO PASS A RECEPCION.PHP
-			var req2 = new XMLHttpRequest();
-			req2.open('POST', 'http://127.0.0.1:5501/forms/recepcion.php', false);
-			req2.setRequestHeader('Content-type', 'application/x-www-form-urlencoded'); //INDICA FORMATO DE TEXTO DEL CUERPO DE LA PETICION
-			req2.setRequestHeader('Access-Control-Allow-Headers', '*'); //PERMISOS DE ACCESO
-			req2.send(`pass="${p}"`);
-			if (req2.status == 200){
-				console.log(req2.responseText)    
-		}*/
+		
+   // ENVIO CORREO A RECEPCION.PHP
+			var ajax = new XMLHttpRequest();
+			ajax.onreadystatechange = function(){
+				if (ajax.readyState == 4 && ajax.status == 200) {
+					alert("Correo enviado correctamente");
+				}
+	
+			};
+			
+			ajax.open("POST", "./forms/recepcion.php", false);
+			let formData = new FormData();
 
+			formData.append("pass", p);
+			formData.append("correo", e);
 
+			ajax.send(formData);
 });
 }

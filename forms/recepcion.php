@@ -5,12 +5,14 @@
     $bd="";
 
     $conexion=new mysqli($servername, $username, $password,$bd);
-    $passnueva=$_POST['pass'];
     
+    $passHash=password_hash($_POST['pass'], PASSWORD_DEFAULT);
+    echo($passHash);
     $correo=$_POST['correo'];
-    $orden="UPDATE usuario SET PASSWORD=$passnueva
-            WHERE EMAIL=$correo";
+
+    $orden="UPDATE touristmap.usuario SET pass='$passHash' WHERE EMAIL='$correo'";
      
     $conexion->query($orden);
 
 ?>
+
