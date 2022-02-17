@@ -8,24 +8,28 @@
 
 </head>
 <body>
-    <form class ="form" method="POST" >
+    <form class ="form" method="POST" name="form" id="form">
         <h1>Insertar coordenada</h1>
         <select id="categoria" name="categoria">
             <option value="1">Monumento</option>
             <option value="2">Aire libre</option>
             <option value="3">Evento</option>
         </select><br>
-    	<input type="text" id="latitud" name="latitud" placeholder="Latitud"><br>
-    	<input type="text" id="longitud" name="longitud" placeholder="Longitud"><br>
-    	<input type="text" id="direccion" name="direccion" placeholder="Direccion"><br>
-    	<input type="text" id="telefono" name="telefono" placeholder="Telefono"><br>
-        <input type="text" id="titulo" name="titulo" placeholder="Nombre el lugar"><br>
+    	<input type="text" id="latitud" name="latitud" placeholder="Latitud" onblur="check_lat()" value="00.0000000"><br>
+    	<input type="text" id="longitud" name="longitud" placeholder="Longitud" onblur="check_lon()" value="-0.0000000"><br>
+    	<input type="text" id="direccion" name="direccion" placeholder="Direccion" onblur="validateForm()"><br>
+    	<input type="text" id="telefono" name="telefono" placeholder="Telefono" onblur="validateForm()"><br>
+        <input type="text" id="titulo" name="titulo" placeholder="Nombre el lugar" onblur="validateForm()"><br>
         <textarea  cols="40" rows="10" name="descripcion" id="descripcion"  placeholder="Escribe una descripcion"></textarea><br>
-    	<input type="url" id="img" name="img" placeholder="URL"><br>
+    	<input type="url" id="img" name="img" placeholder="URL" onblur="validateForm()"><br>
     	
-    	<button type="button" onclick="insert()" name="register">Guardar coordenada</button>
+    	<button type="button" onclick="insert()" id="register">Guardar coordenada</button>
     </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../assets/js/addElements.js"></script>
     <script src="../assets/js/insertCoordenada.js"></script>
+    <script src="../assets/js/jquery.validate.min.js"></script>
+    <script src="../assets/js/additional-methods.min.js"></script>
 
 </body>
 </html>
