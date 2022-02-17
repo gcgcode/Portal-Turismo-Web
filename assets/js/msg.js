@@ -22,7 +22,7 @@ function sendEmail(e){
 		From: "Tourist.maps.recuperacion@gmail.com",
 		Subject:"Sending Email Using JS",
 		Body: `Tu nueva contraseña es: ${p}`,
-		
+
 	})
 	.then(function(message){
 		
@@ -31,8 +31,8 @@ function sendEmail(e){
 			ajax.onreadystatechange = function(){
 				if (ajax.readyState == 4 && ajax.status == 200) {
 					alert("Correo enviado correctamente");
+					window.open("./login.html", "_self");	
 				}
-	
 			};
 			
 			ajax.open("POST", "./forms/recepcion.php", false);
@@ -42,5 +42,6 @@ function sendEmail(e){
 			formData.append("correo", e);
 
 			ajax.send(formData);
+
 });
 }
