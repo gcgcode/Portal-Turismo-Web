@@ -83,10 +83,11 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
     
     
 }elseif($_SERVER['REQUEST_METHOD']=='POST'){
-
+echo "POSTOK";
     // INSERT COORDENADA
     if (isset($_POST['latitud']) && isset($_POST['longitud']) && isset($_POST['titulo']) && isset($_POST['descripcion']) && isset($_POST['direccion']) && isset($_POST['telefono']) && isset($_POST['img']) && isset($_POST['id_categoria'])) {
-    
+        echo "VAROK";
+        
     header("HTTP/1.1 200 POST OK");
     $latitud=$_POST['latitud'];
     $longitud=$_POST['longitud'];
@@ -96,9 +97,9 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
     $telefono=$_POST['telefono'];
     $img=$_POST['img'];
     $id_categoria=$_POST['id_categoria'];
-
+    echo "$id_categoria";
     $orden="INSERT INTO touristmap.coordenada(LATITUD,LONGITUD,TITULO, DESCRIPCION, DIRECCION, TELEFONO, IMG, ID_CATEGORIA) VALUES('$latitud','$longitud','$titulo','$descripcion','$direccion','$telefono','$img','$id_categoria');";
-
+echo $orden;
     $result = mysqli_query($conexion, $orden);
 
     $data = array();

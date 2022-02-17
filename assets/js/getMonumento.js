@@ -37,7 +37,6 @@ window.onload = function () {
                 titulo.innerHTML=valorTitulo;
                 direccion.innerHTML="Dirección: "+valorDireccion;
                 telefono.innerHTML="Teléfono: "+valorTelefono;
-                horario.innerHTML="Horario: "+valorHorario;
 
                 texto.innerHTML=valorTexto;
 

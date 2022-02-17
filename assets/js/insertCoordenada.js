@@ -9,6 +9,14 @@ function insert() {
     var descripcion = document.getElementById("descripcion").value;
     var img = document.getElementById("img").value;
     
+    console.log(categoria);
+    console.log(latitud);
+    console.log(longitud);
+    console.log(direccion);
+    console.log(telefono);
+    console.log(titulo);
+    console.log(descripcion);
+    console.log(img);
     var ajax = new XMLHttpRequest();
     ajax.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
