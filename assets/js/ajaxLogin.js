@@ -7,7 +7,7 @@ function insert() {
   var ajax = new XMLHttpRequest();
   ajax.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
-    
+    console.log(this.responseText);
     
     if (ajax.responseText == "LOGINOK") {
       sessionStorage.setItem("user", username);
@@ -15,7 +15,7 @@ function insert() {
       var url = '../../proyectoFinal/admin-panel/index.html?username=' + user;
       window.open(url,"_self");
     }else{
-      parrafo.innerHTML="Usuario o contraseña incorrectos";
+      parrafo.innerHTML="<p>Usuario o contraseña incorrecta</p>";
     }
   }
 };

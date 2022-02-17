@@ -1,4 +1,3 @@
-
 <?php 
         include("../database/db_conn.php"); // Incluimos la conexion con la bbdd
 
@@ -34,7 +33,7 @@ if ($conn->connect_error) {
         
             // Si existe
             if ($columna['contar']>0) {
-                echo "Lo sentimos, el usuario ",$user, " ya existe"; 
+                echo "EXIST"; 
             } else{ // Si no existe, se inserta el nuevo usuario
                 $hash = password_hash($pass, PASSWORD_DEFAULT);
                 $orden = "INSERT INTO touristmap.usuario (username, password, email, nombre_apellidos, id_localidad) VALUES ('$user', '$hash', '$email', '$name', '$id_localidad');";
