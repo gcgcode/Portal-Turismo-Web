@@ -42,6 +42,11 @@ function validateForm(){
         $('#btn').prop('disabled', 'disabled');
       }
     });
+  
 }
+function quitarBoton(){ 
+    $('#btn').prop('disabled', 'disabled');
+  
 
-    
+}
+ window.onload=quitarBoton

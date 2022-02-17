@@ -1,4 +1,5 @@
 function validateForm() {
+ 
   var $myForm = $("#form");
   $myForm.validate({
     rules: {
