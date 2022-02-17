@@ -13,7 +13,6 @@ function insert() {
     ajax.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       alert('Coordenada insertada correctamente');
-      
     }
   };
   ajax.open("POST", "../../proyectoFinal/php/api/maps_api.php", true);
