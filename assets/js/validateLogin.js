@@ -41,3 +41,9 @@ function validateForm() {
     }
   });
 };
+function quitarBoton(){ 
+  $('#btn').prop('disabled', 'disabled');
+
+
+}
+window.onload=quitarBoton
