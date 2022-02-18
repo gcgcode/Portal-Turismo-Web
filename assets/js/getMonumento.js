@@ -17,14 +17,14 @@ window.onload = function () {
               var horario = document.getElementById('idHorarioMonumento');
               var img = document.getElementById('imgMonumento');
               var texto = document.getElementById('textoMonumento');
-
+              var title = document.getElementById('titleMonumento');
+              
 
 
               for (let i = 0; i < data.length; i++) {
                 var valorTitulo =  data[i].TITULO;
                 var valorDireccion =  data[i].DIRECCION;
                 var valorTelefono =  data[i].TELEFONO;
-                var valorHorario =  data[i].HORARIO;
                 var valorTexto =  data[i].DESCRIPCION;
                 var valorImagen =  data[i].IMG; 
                 var linea = "<img src='"+valorImagen+"' srcset='' width='600' height='400'>";
@@ -33,7 +33,12 @@ window.onload = function () {
                     "beforeend",
                     linea 
                   );
-                             
+                     
+                  title.insertAdjacentHTML(
+                    "beforeend",
+                    valorTitulo 
+                  );
+
                 titulo.innerHTML=valorTitulo;
                 direccion.innerHTML="Dirección: "+valorDireccion;
                 telefono.innerHTML="Teléfono: "+valorTelefono;
