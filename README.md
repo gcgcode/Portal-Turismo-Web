@@ -187,10 +187,10 @@ INSERT INTO TOURISTMAP.LOCALIDAD VALUES (default,'El Viso del Alcor');
 # Contribuyentes
 Este proyecto ha sido desarrollado en equipo por los siguientes integrantes:
 
-- **_Gonzalo Cantos_** - _Desarrollador **Back-End/Team leader**_
 - _Pedro Solís_ - _Desarrollador Front-End_
 - _Borja González_ - _Desarrollador Front-End_
 - _Jesus Jiménez_ - _Desarrollador Front-End_
+- **_Gonzalo Cantos_** - _Desarrollador **Back-End/Team leader**_
 
    
  **_No se permite el uso para fines lucrativos._**
